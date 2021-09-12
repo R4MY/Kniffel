@@ -1,10 +1,11 @@
-package Kniffel;
+package challenges;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class KniffelApplicationTests {
+class KniffelApplicationTests
+{
 
 	@Test
 	void contextLoads() {

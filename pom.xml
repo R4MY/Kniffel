@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>Kniffel</groupId>
-	<artifactId>kniffel</artifactId>
+	<artifactId>Kniffel</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>kniffel</name>
+	<name>Kniffel</name>
 	<description>Kniffel / Yahtzee Game</description>
 	<properties>
 		<java.version>16</java.version>
@@ -40,6 +40,7 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>2.5.4</version>
 			</plugin>
 		</plugins>
 	</build>
