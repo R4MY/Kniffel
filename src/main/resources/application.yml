@@ -1,0 +1,131 @@
+roundsAmount: 13
+
+yahtzee:
+  dialogues:
+    keepDice: "Which dice to you want to keep?"
+    playAgain: "Do you want to play again?"
+    chooseCategory: "What category do you choose to add the score?"#
+  categoryBoxes:
+    aces:
+      category: "Aces"
+      description: "Any combination"
+      score: "The sum of dice with the number 1"
+    twos:
+      category: "Twos"
+      description: "Any combination"
+      score: "The sum of dice with the number 2"
+    threes:
+      category: "Threes"
+      description: "Any combination"
+      score: "The sum of dice with the number 3"
+    fours:
+      category: "Fours"
+      description: "Any combination"
+      score: "The sum of dice with the number 4"
+    fives:
+      category: "Fives"
+      description: "Any combination"
+      score: "The sum of dice with the number 5"
+    sixes:
+      category: "Sixes"
+      description: "Any combination"
+      score: "The sum of dice with the number 6"
+    upperBonus:
+      category: "Bonus"
+      description: "if upper score is 63 or over"
+      score: "35"
+    threeOfAKind:
+      category: "Three Of A Kind"
+      description: "At least three dice the same"
+      score: "Sum of all dice"
+    fourOfAKind:
+      category: "Four Of A Kind"
+      description: "At least four dice the same"
+      score: "Sum of all dice"
+    fullHouse:
+      category: "Full House"
+      description: "Three of one number and two of another"
+      score: "25"
+    smallStraight:
+      category: "Small Straight"
+      description: "Four sequential dice (1-2-3-4, 2-3-4-5, or 3-4-5-6)"
+      score: "30"
+    bigStraight:
+      category: "Big Straight"
+      description: "Five sequential dice (1-2-3-4-5 or 2-3-4-5-6)"
+      score: "40"
+    yahtzee:
+      category: "Yahtzee"
+      description: "All five dice the same"
+      score: "50"
+    yahtzeeBonus:
+      category: "Yahtzee Bonus"
+      description: "Each Yahtzee after the first"
+      score: "100"
+    chance:
+      category: "Chance"
+      description: "Any combination"
+      score: "Sum of all dice"
+
+kniffel:
+  dialogues:
+    keepDice: "Welche Würfel möchtest Du behalten?"
+    playAgain: "Möchtest Du noch eine Runde spielen?"
+    chooseCategory: "In welche Kategorie möchtest Du die Punkte eintragen?"
+  categoryBoxes:
+    aces:
+      category: "Einser"
+      description: "Jede Kombination"
+      score: "Die Summe der Augenzahlen der Einser"
+    twos:
+      category: "Zweier"
+      description: "Jede Kombination"
+      score: "Die Summe der Augenzahlen der Zweier"
+    threes:
+      category: "Dreier"
+      description: "Jede Kombination"
+      score: "Die Summe der Augenzahlen der Dreier"
+    fours:
+      category: "Vierer"
+      description: "Jede Kombination"
+      score: "Die Summe der Augenzahlen der Vierer"
+    fives:
+      category: "Fünfer"
+      description: "Jede Kombination"
+      score: "Die Summe der Augenzahlen der Fünfer"
+    sixes:
+      category: "Sechser"
+      description: "Jede Kombination"
+      score: "Die Summe der Augenzahlen der Sechser"
+    upperBonus:
+      category: "Bonus"
+      description: "bei 63 oder mehr"
+      score: "35"
+    threeOfAKind:
+      category: "Dreierpasch"
+      description: "Mindestens drei gleiche Zahlen"
+      score: "Summe aller Augenzahlen"
+    fourOfAKind:
+      category: "Viererpasch"
+      description: "Mindestens vier gleiche Zahlen"
+      score: "Summe aller Augenzahlen"
+    fullHouse:
+      category: "Full House"
+      description: "Drei gleiche und zwei gleiche, andere Zahlen"
+      score: "25"
+    smallStraight:
+      category: "Kleine Straße"
+      description: "Vier aufeinanderfolgende Augenzahlen (1-2-3-4, 2-3-4-5 oder 3-4-5-6)"
+      score: "30"
+    bigStraight:
+      category: "Große Straße"
+      description: "Fünf aufeinanderfolgende Augenzahlen (1-2-3-4, 2-3-4-5 oder 3-4-5-6)"
+      score: "40"
+    yahtzee:
+      category: "Kniffel"
+      description: "5 gleiche Zahlen"
+      score: "50"
+    chance:
+      category: "Chance"
+      description: "Jede Kombination"
+      score: "Summe aller Augenzahlen"
