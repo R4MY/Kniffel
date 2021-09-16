@@ -1,7 +1,6 @@
 package Kniffel.scorecard.categoryBox.categoryBoxes;
 
 import Kniffel.scorecard.categoryBox.CategoryBox;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,13 +14,13 @@ public class Chance extends CategoryBox
     }
 
     @Override
-    public boolean checkRequirementsMet(Object currentThrow)
+    public boolean check(Object currentThrow)
     {
         return true;
     }
 
     @Override
-    public int calculateScore(List<Integer> currentThrow)
+    public int calculate(List<Integer> currentThrow)
     {
         return currentThrow.stream()
                 .reduce(0, Integer::sum);

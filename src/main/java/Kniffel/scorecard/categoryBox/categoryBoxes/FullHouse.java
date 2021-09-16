@@ -3,7 +3,6 @@ package Kniffel.scorecard.categoryBox.categoryBoxes;
 import Kniffel.scorecard.categoryBox.CategoryBox;
 import Kniffel.service.DiceRoller;
 import Kniffel.service.IntegerListHandler;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,7 +16,7 @@ public class FullHouse extends CategoryBox
     }
 
     @Override
-    public boolean checkRequirementsMet(Object currentThrow)
+    public boolean check(Object currentThrow)
     {
         return DiceRoller.d6.stream()
                 .filter(n -> IntegerListHandler.checkHasNumberTheAmountOfTimes((List<Integer>) currentThrow, n, 3))
@@ -27,8 +26,10 @@ public class FullHouse extends CategoryBox
     }
 
     @Override
-    public int calculateScore(List<Integer> currentThrow)
+    public int calculate(List<Integer> currentThrow)
     {
-        return 25;
+        if (check(currentThrow))
+            return 25;
+        return 0;
     }
 }

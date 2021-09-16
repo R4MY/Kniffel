@@ -2,7 +2,6 @@ package Kniffel.scorecard.categoryBox.categoryBoxes;
 
 import Kniffel.scorecard.categoryBox.CategoryBox;
 import Kniffel.service.IntegerListHandler;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,21 +9,19 @@ import java.util.List;
 @Service
 public class SmallStraight extends CategoryBox
 {
-    public SmallStraight(@Value("${yahtzee.categoryBoxes.smallStraight.category}") String category,
-                         @Value("${yahtzee.categoryBoxes.smallStraight.description}") String description,
-                         @Value("${yahtzee.categoryBoxes.smallStraight.score}") String score)
+    SmallStraight(String category, String description, String scoreComposition)
     {
-        super(category, description, score);
+        super(category, description, scoreComposition);
     }
 
     @Override
-    public boolean checkRequirementsMet(List<Integer> currentThrow)
+    public boolean check(Object currentThrow)
     {
-        return IntegerListHandler.checkHasSequenceOfMinimumTheLength(currentThrow, 4);
+        return IntegerListHandler.checkHasSequenceOfMinimumTheLength((List<Integer>) currentThrow, 4);
     }
 
     @Override
-    public int calculateScore(List<Integer> currentThrow)
+    public int calculate(List<Integer> currentThrow)
     {
         return 30;
     }

@@ -1,43 +1,29 @@
 package Kniffel.scorecard.categoryBox.categoryBoxes;
 
-import Kniffel.scorecard.*;
-import Kniffel.scorecard.categoryBox.Description;
-import Kniffel.scorecard.categoryBox.Score;
-import Kniffel.scorecard.section.bonus.Bonus;
+import Kniffel.scorecard.categoryBox.CategoryBox;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class UpperBonus implements Description, Score
+public class UpperBonus extends CategoryBox
 {
-    private String category;
-    private String description;
-    private String score;
-
-    public UpperBonus(String category, String description, String score)
+    UpperBonus(String category, String description, String scoreComposition)
     {
-        this.category = category;
-        this.description = description;
-        this.score = score;
+        super(category, description, scoreComposition);
     }
 
-    // TODO IMPLEMENTATION
+
+// TODO IMPLEMENTATION  (can only be done after scorecard is done)
     @Override
-    public boolean checkRequirementsMet(Object scorecard)
+    public boolean check(Object scoreCard)
     {
-        return scorecard
+        return true;
     }
 
     @Override
-    public int calculateScore(List<Integer> currentThrow)
+    public int calculate(List<Integer> currentThrow)
     {
         return 35;
-    }
-
-    @Override
-    public boolean checkRequirementsMet(Object valueToBeCheckedForMeetingRequirements)
-    {
-        return false;
     }
 }

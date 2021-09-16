@@ -3,7 +3,7 @@ package Kniffel;
 import Kniffel.scorecard.Scorecard;
 
 import java.util.Set;
-
+//TODO WHOLE CLASS
 public class Game
 {
     private static Set<Scorecard> scorecards;

@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Value;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
+// TODO: Whole class
 public class TurnHandler
 {
     private static String diceKeep;
@@ -47,7 +47,6 @@ public class TurnHandler
         }
     }
 
-    //TODO IMPLEMENTATION
     private static List<Integer> getDiceKept()
     {
         System.out.println(diceKeep);
@@ -59,6 +58,6 @@ public class TurnHandler
     {
         Scanner scanner = new Scanner(System.in);
         System.out.println(chooseCategory);
-
+        return scorecard;
     }
 }

@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.Scanner;
-
+// TODO WHOLE CLASS
 @Service
 public class GamePerformer
 {

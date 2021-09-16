@@ -1,6 +1,5 @@
 package Kniffel.scorecard.categoryBox.categoryBoxes;
 
-import Kniffel.scorecard.categoryBox.CategoryBox;
 import Kniffel.scorecard.categoryBox.CategoryBoxBuilder;
 
 public class ChanceBuilder extends CategoryBoxBuilder<ChanceBuilder>
@@ -28,7 +27,7 @@ public class ChanceBuilder extends CategoryBoxBuilder<ChanceBuilder>
     }
 
     @Override
-    public Chance build()
+    protected Chance build()
     {
         return new Chance(category, description, scoreComposition);
     }

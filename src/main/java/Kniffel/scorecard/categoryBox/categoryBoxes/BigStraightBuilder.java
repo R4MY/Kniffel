@@ -27,7 +27,7 @@ public class BigStraightBuilder extends CategoryBoxBuilder<BigStraightBuilder>
     }
 
     @Override
-    public BigStraight build()
+    protected BigStraight build()
     {
         return new BigStraight(category, description, scoreComposition);
     }

@@ -35,7 +35,7 @@ public abstract class CategoryBoxBuilder<T extends CategoryBoxBuilder<T>>
         return self();
     }
 
-    protected abstract CategoryBox build();
+    public abstract CategoryBox build();
 
     CategoryBoxListBuilder addCategoryBoxToList()
     {

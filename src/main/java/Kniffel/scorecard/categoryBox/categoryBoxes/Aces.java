@@ -14,13 +14,13 @@ public class Aces extends CategoryBox
     }
 
     @Override
-    public boolean checkRequirementsMet(Object currentThrow)
+    public boolean check(Object currentThrow)
     {
         return true;
     }
 
     @Override
-    public int calculateScore(List<Integer> currentThrow)
+    public int calculate(List<Integer> currentThrow)
     {
         return currentThrow.stream()
                 .filter(d -> d.equals(1))

@@ -27,7 +27,7 @@ public class FoursBuilder extends CategoryBoxBuilder<FoursBuilder>
     }
 
     @Override
-    public Fours build()
+    protected Fours build()
     {
         return new Fours(category, description, scoreComposition);
     }

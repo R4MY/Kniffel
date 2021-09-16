@@ -27,7 +27,7 @@ public class FivesBuilder extends CategoryBoxBuilder<FivesBuilder>
     }
 
     @Override
-    public Fives build()
+    protected Fives build()
     {
         return new Fives(category, description, scoreComposition);
     }
