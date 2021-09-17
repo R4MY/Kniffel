@@ -9,9 +9,9 @@ import java.util.Objects;
 public class PointsColumn
 {
     private int gameNumber;
-    private Map<Box, Integer> pointsBoxes = new HashMap<>();
+    private Map<String, Integer> pointsBoxes = new HashMap<>();
 
-    PointsColumn(int gameNumber, Map<Box, Integer> pointsBoxes)
+    PointsColumn(int gameNumber, Map<String, Integer> pointsBoxes)
     {
         this.gameNumber = gameNumber;
         this.pointsBoxes = pointsBoxes;
@@ -27,12 +27,12 @@ public class PointsColumn
         this.gameNumber = gameNumber;
     }
 
-    public Map<Box, Integer> getPointsBoxes()
+    public Map<String, Integer> getPointsBoxes()
     {
         return pointsBoxes;
     }
 
-    public void setPointsBoxes(Map<Box, Integer> pointsBoxes)
+    public void setPointsBoxes(Map<String, Integer> pointsBoxes)
     {
         this.pointsBoxes = pointsBoxes;
     }

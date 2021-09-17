@@ -6,23 +6,16 @@ import java.util.Objects;
 
 public abstract class TotalsBox extends Box
 {
-    private String category;
     private String calculatedScore;
+
+    public TotalsBox()
+    {
+    }
 
     public TotalsBox(String category, String calculatedScore)
     {
-        this.category = category;
+        super(category);
         this.calculatedScore = calculatedScore;
-    }
-
-    public String getCategory()
-    {
-        return category;
-    }
-
-    public void setCategory(String category)
-    {
-        this.category = category;
     }
 
     public String getCalculatedScore()
@@ -40,22 +33,23 @@ public abstract class TotalsBox extends Box
     {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
         TotalsBox totalsBox = (TotalsBox) o;
-        return Objects.equals(category, totalsBox.category) && Objects.equals(calculatedScore, totalsBox.calculatedScore);
+        return Objects.equals(calculatedScore, totalsBox.calculatedScore);
     }
 
     @Override
     public int hashCode()
     {
-        return Objects.hash(category, calculatedScore);
+        return Objects.hash(super.hashCode(), calculatedScore);
     }
 
     @Override
     public String toString()
     {
         return "TotalsBox{" +
-                "category='" + category + '\'' +
-                ", calculatedScore='" + calculatedScore + '\'' +
+                "category='" + super.getCategory() + '\'' +
+                ",calculatedScore='" + calculatedScore + '\'' +
                 '}';
     }
 }

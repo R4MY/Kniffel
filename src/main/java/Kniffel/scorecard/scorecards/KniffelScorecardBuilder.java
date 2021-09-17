@@ -7,7 +7,6 @@ import Kniffel.scorecard.section.Section;
 import Kniffel.scorecard.section.SectionListBuilder;
 
 import java.util.List;
-
 public class KniffelScorecardBuilder extends ScorecardBuilder<KniffelScorecardBuilder>
 {
     private String playerName = "Gast";

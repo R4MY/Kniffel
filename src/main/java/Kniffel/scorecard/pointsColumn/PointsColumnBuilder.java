@@ -3,13 +3,14 @@ package Kniffel.scorecard.pointsColumn;
 import Kniffel.scorecard.box.Box;
 import Kniffel.scorecard.section.Section;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-// Prototype Pattern
+// TODO  Prototype Pattern + FIX setPointsBoxes
 public class PointsColumnBuilder
 {
     private int gameNumber = 1;
-    private Map<Box, Integer> pointsBoxes;
+    private Map<String, Integer> pointsBoxes = new HashMap<>();
 
     public PointsColumnBuilder setGameNumber(int gameNumber)
     {
@@ -22,7 +23,7 @@ public class PointsColumnBuilder
         sections.stream()
                 .map(Section::getBoxList)
                 .forEach(boxes -> boxes
-                        .forEach(box -> pointsBoxes.put(box, null)));
+                        .forEach(box -> pointsBoxes.put(box.getCategory(), null)));
         return this;
     }
 

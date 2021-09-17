@@ -6,7 +6,6 @@ import java.util.Objects;
 
 public abstract class CategoryBox extends Box implements ScoreCalculator
 {
-    private String category;
     private String description;
     private String scoreComposition;
 
@@ -16,19 +15,9 @@ public abstract class CategoryBox extends Box implements ScoreCalculator
 
     public CategoryBox(String category, String description, String scoreComposition)
     {
-        this.category = category;
+        super(category);
         this.description = description;
         this.scoreComposition = scoreComposition;
-    }
-
-    public String getCategory()
-    {
-        return category;
-    }
-
-    public void setCategory(String category)
-    {
-        this.category = category;
     }
 
     public String getDescription()
@@ -56,22 +45,23 @@ public abstract class CategoryBox extends Box implements ScoreCalculator
     {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
         CategoryBox that = (CategoryBox) o;
-        return Objects.equals(category, that.category) && Objects.equals(description, that.description) && Objects.equals(scoreComposition, that.scoreComposition);
+        return Objects.equals(description, that.description) && Objects.equals(scoreComposition, that.scoreComposition);
     }
 
     @Override
     public int hashCode()
     {
-        return Objects.hash(category, description, scoreComposition);
+        return Objects.hash(super.hashCode(), description, scoreComposition);
     }
 
     @Override
     public String toString()
     {
         return "CategoryBox{" +
-                "category='" + category + '\'' +
-                ", description='" + description + '\'' +
+                "category='" + super.getCategory() + '\'' +
+                ",description='" + description + '\'' +
                 ", scoreComposition='" + scoreComposition + '\'' +
                 '}';
     }
