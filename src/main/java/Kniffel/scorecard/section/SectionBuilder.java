@@ -1,21 +1,21 @@
 package Kniffel.scorecard.section;
 
-import Kniffel.scorecard.categoryBox.CategoryBox;
+import Kniffel.scorecard.box.Box;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public abstract class SectionBuilder<T extends SectionBuilder<T>>
 {
-    private List<CategoryBox> categoryBoxList = new ArrayList<>();
+    private List<Box> boxList = new ArrayList<>();
 
-    public T setCategoryBoxList(List<CategoryBox> categoryBoxList)
+    public T setBoxList(List<Box> boxList)
     {
-        this.categoryBoxList = categoryBoxList;
+        this.boxList = boxList;
         return self();
     }
 
-    protected abstract Section build();
+    public abstract Section build();
 
     protected abstract T self();
 }

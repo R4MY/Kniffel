@@ -13,7 +13,7 @@ public class GamePerformer
     private final String playAgainMessage;
 
     public GamePerformer(@Value("${roundsAmount}") int roundsAmount,
-                         @Value("${dialogues.playAgain}") String playAgainMessage)
+                         @Value("${yahtzee.dialogues.playAgain}") String playAgainMessage)
     {
         this.roundsAmount = roundsAmount;
         this.playAgainMessage = playAgainMessage;

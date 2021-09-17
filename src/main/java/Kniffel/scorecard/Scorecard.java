@@ -1,36 +1,77 @@
 package Kniffel.scorecard;
 
 import Kniffel.scorecard.pointsColumn.PointsColumn;
-import Kniffel.scorecard.section.LowerSection;
-import Kniffel.scorecard.section.TotalsSection;
-import Kniffel.scorecard.section.UpperSection;
+import Kniffel.scorecard.section.Section;
 
 import java.util.List;
-//TODO MAYBE USE PROTOTYPE PATTERN + BUILDER PATTERN!
+import java.util.Objects;
+
+//TODO MAYBE USE PROTOTYPE PATTERN!
 public abstract class Scorecard
 {
     private String playerName;
-    private UpperSection upperSection;
-    private LowerSection lowerSection;
+    private List<Section> sections;
     private List<PointsColumn> pointsColumns;
-    private TotalsSection totalsSection;
 
-    public Scorecard(String playerName, UpperSection upperSection, LowerSection lowerSection, List<PointsColumn> pointsColumns, TotalsSection totalsSection)
+    public Scorecard(String playerName, List<Section> sections, List<PointsColumn> pointsColumns)
     {
         this.playerName = playerName;
-        this.upperSection = upperSection;
-        this.lowerSection = lowerSection;
+        this.sections = sections;
         this.pointsColumns = pointsColumns;
-        this.totalsSection = totalsSection;
     }
 
-    //    public Scorecard(String playerName)
-//    {
-//        this.playerName = playerName;
-////        this.upperSection = null;
-////        this.lowerSection = null;
-////        int i = 0;
-////        while (i++ < 5)
-////          PointsColumn.addEmptyPoints(this.upperSection, this.lowerSection);
-//    }
+    public String getPlayerName()
+    {
+        return playerName;
+    }
+
+    public void setPlayerName(String playerName)
+    {
+        this.playerName = playerName;
+    }
+
+    public List<Section> getSections()
+    {
+        return sections;
+    }
+
+    public void setSections(List<Section> sections)
+    {
+        this.sections = sections;
+    }
+
+    public List<PointsColumn> getPointsColumns()
+    {
+        return pointsColumns;
+    }
+
+    public void setPointsColumns(List<PointsColumn> pointsColumns)
+    {
+        this.pointsColumns = pointsColumns;
+    }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Scorecard scorecard = (Scorecard) o;
+        return Objects.equals(playerName, scorecard.playerName) && Objects.equals(sections, scorecard.sections) && Objects.equals(pointsColumns, scorecard.pointsColumns);
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(playerName, sections, pointsColumns);
+    }
+
+    @Override
+    public String toString()
+    {
+        return "Scorecard{" +
+                "playerName='" + playerName + '\'' +
+                ", sections=" + sections +
+                ", pointsColumns=" + pointsColumns +
+                '}';
+    }
 }

@@ -1,27 +1,27 @@
 package Kniffel.scorecard.section;
 
-import Kniffel.scorecard.categoryBox.CategoryBox;
+import Kniffel.scorecard.box.Box;
 
 import java.util.List;
 import java.util.Objects;
 
 public abstract class Section
 {
-    private List<CategoryBox> categoryBoxList;
+    private List<Box> boxList;
 
-    Section(List<CategoryBox> categoryBoxList)
+    public Section(List<Box> boxList)
     {
-        this.categoryBoxList = categoryBoxList;
+        this.boxList = boxList;
     }
 
-    public List<CategoryBox> getCategoryBoxList()
+    public List<Box> getBoxList()
     {
-        return categoryBoxList;
+        return boxList;
     }
 
-    public void setCategoryBoxList(List<CategoryBox> categoryBoxList)
+    public void setBoxList(List<Box> boxList)
     {
-        this.categoryBoxList = categoryBoxList;
+        this.boxList = boxList;
     }
 
     @Override
@@ -30,20 +30,20 @@ public abstract class Section
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Section section = (Section) o;
-        return Objects.equals(categoryBoxList, section.categoryBoxList);
+        return Objects.equals(boxList, section.boxList);
     }
 
     @Override
     public int hashCode()
     {
-        return Objects.hash(categoryBoxList);
+        return Objects.hash(boxList);
     }
 
     @Override
     public String toString()
     {
         return "Section{" +
-                "categoryBoxList=" + categoryBoxList +
+                "boxList=" + boxList +
                 '}';
     }
 }

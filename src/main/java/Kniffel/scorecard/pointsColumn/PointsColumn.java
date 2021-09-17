@@ -1,6 +1,6 @@
 package Kniffel.scorecard.pointsColumn;
 
-import Kniffel.scorecard.categoryBox.CategoryBox;
+import Kniffel.scorecard.box.Box;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -8,32 +8,31 @@ import java.util.Objects;
 
 public class PointsColumn
 {
-    private String gameNumber;
+    private int gameNumber;
+    private Map<Box, Integer> pointsBoxes = new HashMap<>();
 
-    private Map<CategoryBox, Integer> pointsBoxes = new HashMap<>();
-
-    PointsColumn(String gameNumber, Map<CategoryBox, Integer> pointsBoxes)
+    PointsColumn(int gameNumber, Map<Box, Integer> pointsBoxes)
     {
         this.gameNumber = gameNumber;
         this.pointsBoxes = pointsBoxes;
     }
 
-    public String getGameNumber()
+    public int getGameNumber()
     {
         return gameNumber;
     }
 
-    public void setGameNumber(String gameNumber)
+    public void setGameNumber(int gameNumber)
     {
         this.gameNumber = gameNumber;
     }
 
-    public Map<CategoryBox, Integer> getPointsBoxes()
+    public Map<Box, Integer> getPointsBoxes()
     {
         return pointsBoxes;
     }
 
-    public void setPointsBoxes(Map<CategoryBox, Integer> pointsBoxes)
+    public void setPointsBoxes(Map<Box, Integer> pointsBoxes)
     {
         this.pointsBoxes = pointsBoxes;
     }
