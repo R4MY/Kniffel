@@ -2,7 +2,7 @@ package Kniffel.scorecard.scorecards;
 
 import org.junit.jupiter.api.Test;
 
-class KniffelScorecardBuilderTest
+    class KniffelScorecardBuilderTest
 {
     @Test
     void build()

@@ -59,10 +59,10 @@ public abstract class CategoryBox extends Box implements ScoreCalculator
     @Override
     public String toString()
     {
-        return "CategoryBox{" +
-                "category='" + super.getCategory() + '\'' +
-                ",description='" + description + '\'' +
-                ", scoreComposition='" + scoreComposition + '\'' +
-                '}';
+        return "\nCategoryBox\n{\n"
+                + super.toString()
+                + ",\n   \"description\" : \"" + description + "\""
+                + ",\n   \"scoreComposition\" : \"" + scoreComposition + "\""
+                + "\n}";
     }
 }

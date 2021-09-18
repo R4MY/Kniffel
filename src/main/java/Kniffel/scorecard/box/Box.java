@@ -43,8 +43,9 @@ public abstract class Box
     @Override
     public String toString()
     {
-        return "Box{" +
-                "category='" + category + '\'' + "\n" +
-                '}';
+        return ""
+                + "   \"category\" : \"" + category + "\""
+                + "";
     }
+
 }

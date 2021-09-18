@@ -68,10 +68,11 @@ public abstract class Scorecard
     @Override
     public String toString()
     {
-        return "Scorecard{" + "\n" +
-                "playerName='" + playerName + '\'' + "\n" +
-                "sections=" + sections + "\n" +
-                "pointsColumns=" + pointsColumns +
-                '}';
+        return "\nScorecard\n{\n"
+                + "   \"playerName\" : \"" + playerName + "\""
+                + ",\n   \"sections\" : " + sections
+                + ",\n   \"pointsColumns\" : " + pointsColumns
+                + "\n}";
     }
+
 }

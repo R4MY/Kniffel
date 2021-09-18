@@ -47,9 +47,10 @@ public abstract class TotalsBox extends Box
     @Override
     public String toString()
     {
-        return "TotalsBox{" +
-                "category='" + super.getCategory() + '\'' +
-                ",calculatedScore='" + calculatedScore + '\'' +
-                '}';
+        return "\nTotalsBox\n{\n"
+                + super.toString()
+                + ",\n   \"calculatedScore\" : \"" + calculatedScore + "\""
+                + "\n}";
     }
+
 }

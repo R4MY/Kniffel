@@ -1,7 +1,5 @@
 package Kniffel.scorecard.pointsColumn;
 
-import Kniffel.scorecard.box.Box;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -55,9 +53,10 @@ public class PointsColumn
     @Override
     public String toString()
     {
-        return "PointsColumn{" +
-                "gameNumber='" + gameNumber + '\'' +
-                ", pointsBoxes=" + pointsBoxes +
-                '}';
+        return "\nPointsColumn\n{\n"
+                + "   \"gameNumber\" : \"" + gameNumber + "\""
+                + ",\n   \"pointsBoxes\" : " + pointsBoxes
+                + "\n}";
     }
+
 }

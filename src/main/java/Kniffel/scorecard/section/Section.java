@@ -42,8 +42,9 @@ public abstract class Section
     @Override
     public String toString()
     {
-        return "Section{" + "\n" +
-                "boxList=" + boxList +
-                '}';
+        return ""
+                + "   \"boxList\" : " + boxList
+                + "";
     }
+
 }
