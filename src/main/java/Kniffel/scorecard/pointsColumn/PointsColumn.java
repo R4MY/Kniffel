@@ -1,15 +1,13 @@
 package Kniffel.scorecard.pointsColumn;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 public class PointsColumn
 {
     private int gameNumber;
-    private Map<String, Integer> pointsBoxes = new HashMap<>();
+    private List<PointsBox> pointsBoxes = new ArrayList<>();
 
-    PointsColumn(int gameNumber, Map<String, Integer> pointsBoxes)
+    PointsColumn(int gameNumber, List<PointsBox> pointsBoxes)
     {
         this.gameNumber = gameNumber;
         this.pointsBoxes = pointsBoxes;
@@ -25,12 +23,12 @@ public class PointsColumn
         this.gameNumber = gameNumber;
     }
 
-    public Map<String, Integer> getPointsBoxes()
+    public List<PointsBox> getPointsBoxes()
     {
         return pointsBoxes;
     }
 
-    public void setPointsBoxes(Map<String, Integer> pointsBoxes)
+    public void setPointsBoxes(List<PointsBox> pointsBoxes)
     {
         this.pointsBoxes = pointsBoxes;
     }
@@ -57,6 +55,16 @@ public class PointsColumn
                 + "   \"gameNumber\" : \"" + gameNumber + "\""
                 + ",\n   \"pointsBoxes\" : " + pointsBoxes
                 + "\n}";
+    }
+
+    public PointsColumn duplicateWithEmptyPointsBoxes()
+    {
+        List<PointsBox> pointsBoxesCopy = new ArrayList<>();
+
+        for (PointsBox pointsBox : pointsBoxes)
+            pointsBoxesCopy.add(pointsBox.duplicateWithNullPoints());
+
+        return new PointsColumn(gameNumber, pointsBoxesCopy);
     }
 
 }

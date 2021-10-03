@@ -1,6 +1,7 @@
 package Kniffel.scorecard.box.categoryBox.categoryBoxes;
 
 import Kniffel.scorecard.box.categoryBox.CategoryBox;
+import Kniffel.scorecard.section.sections.SectionEnum;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,9 +13,9 @@ public class Chance extends CategoryBox
     {
     }
 
-    Chance(String category, String description, String scoreComposition)
+    public Chance(String category, String description, String scoreComposition, List<SectionEnum> sectionsToAddTo)
     {
-        super(category, description, scoreComposition);
+        super(category, description, scoreComposition, sectionsToAddTo);
     }
 
     @Override
@@ -27,7 +28,13 @@ public class Chance extends CategoryBox
     public int calculate(Object currentThrow)
     {
         List<Integer> integerList = (List<Integer>) currentThrow;
-        return integerList.stream()
-                .reduce(0, Integer::sum);
+        return check(currentThrow) ? integerList.stream()
+                .reduce(0, Integer::sum) : 0;
+    }
+
+    @Override
+    public int getValue()
+    {
+        return 160;
     }
 }

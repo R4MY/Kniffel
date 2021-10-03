@@ -2,6 +2,8 @@ package Kniffel.scorecard.section.sections;
 
 import Kniffel.scorecard.box.Box;
 import Kniffel.scorecard.box.categoryBox.categoryBoxes.*;
+import Kniffel.scorecard.box.totalsBox.totalsBoxes.TotalOfUpperSectionBuilder;
+import Kniffel.scorecard.box.totalsBox.totalsBoxes.TotalOfUpperSectionWithoutBonusBuilder;
 import Kniffel.scorecard.section.SectionBuilder;
 
 import java.util.List;
@@ -15,8 +17,10 @@ public class UpperSectionBuilder extends SectionBuilder<UpperSectionBuilder>
             new FoursBuilder().build(),
             new FivesBuilder().build(),
             new SixesBuilder().build(),
-            new UpperBonusBuilder().build()
-    );
+            new TotalOfUpperSectionWithoutBonusBuilder().build(),
+            new UpperBonusBuilder().build(),
+            new TotalOfUpperSectionBuilder().build()
+            );
 
     public UpperSectionBuilder setBoxList(List<Box> boxList)
     {

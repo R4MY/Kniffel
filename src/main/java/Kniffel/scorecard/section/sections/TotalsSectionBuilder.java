@@ -9,9 +9,8 @@ import java.util.List;
 public class TotalsSectionBuilder extends SectionBuilder<TotalsSectionBuilder>
 {
     private List<Box> boxList = List.of(
-            new TotalOfUpperSectionWithoutBonusBuilder().build(),
-            new TotalOfUpperSectionBuilder().build(),
             new TotalOfLowerSectionBuilder().build(),
+            new TotalOfUpperSectionBuilder().build(),
             new GrandTotalBuilder().build()
     );
 

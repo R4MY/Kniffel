@@ -1,18 +1,20 @@
 package Kniffel.scorecard;
 
+import Kniffel.Game;
 import Kniffel.scorecard.pointsColumn.PointsColumn;
+import Kniffel.scorecard.scorecards.KniffelScorecard;
+import Kniffel.scorecard.scorecards.YahtzeeScorecard;
 import Kniffel.scorecard.section.Section;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-//TODO MAYBE USE PROTOTYPE PATTERN!
 public abstract class Scorecard
 {
     private String playerName;
     private List<Section> sections;
     private List<PointsColumn> pointsColumns;
-
     public Scorecard(String playerName, List<Section> sections, List<PointsColumn> pointsColumns)
     {
         this.playerName = playerName;
@@ -75,4 +77,19 @@ public abstract class Scorecard
                 + "\n}";
     }
 
+
+    public Scorecard duplicateWithDifferentNameAndEmptyPoints(String playerName) throws Exception
+    {
+        List<PointsColumn> pointsColumnsCopy = new ArrayList<>();
+
+        for (PointsColumn pointsColumn : pointsColumns)
+            pointsColumnsCopy.add(pointsColumn.duplicateWithEmptyPointsBoxes());
+
+        return switch (Game.getGameMode())
+        {
+            case KNIFFEL -> new KniffelScorecard(playerName, sections, pointsColumnsCopy);
+            case YAHTZEE -> new YahtzeeScorecard(playerName, sections, pointsColumnsCopy);
+            default -> throw new Exception();
+        };
+    }
 }

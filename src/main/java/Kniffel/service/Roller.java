@@ -1,7 +1,5 @@
 package Kniffel.service;
 
-import Kniffel.service.DiceRoller;
-
 import java.util.Arrays;
 import java.util.List;
 
@@ -17,11 +15,12 @@ public class Roller
                 DiceRoller.rollD6());
     }
 
-    public static void rerollChosenDice(List<Integer> currentThrow, List<Integer> diceNumbersToReroll)
+    public static void keepChosenDice(List<Integer> currentThrow, List<Integer> diceNumbersToReroll)
     {
-        for (Integer integer : diceNumbersToReroll)
+        for (int i = 1; i <= currentThrow.size(); i++)
         {
-            currentThrow.set(integer, DiceRoller.rollD6());
+            if (!diceNumbersToReroll.contains(i))
+                currentThrow.set(i - 1, DiceRoller.rollD6());
         }
     }
 }

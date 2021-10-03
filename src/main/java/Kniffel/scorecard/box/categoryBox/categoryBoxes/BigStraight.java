@@ -1,6 +1,7 @@
 package Kniffel.scorecard.box.categoryBox.categoryBoxes;
 
 import Kniffel.scorecard.box.categoryBox.CategoryBox;
+import Kniffel.scorecard.section.sections.SectionEnum;
 import Kniffel.service.IntegerListHandler;
 import org.springframework.stereotype.Service;
 
@@ -13,9 +14,9 @@ public class BigStraight extends CategoryBox
     {
     }
 
-    BigStraight(String category, String description, String scoreComposition)
+    public BigStraight(String category, String description, String scoreComposition, List<SectionEnum> sectionsToAddTo)
     {
-        super(category, description, scoreComposition);
+        super(category, description, scoreComposition, sectionsToAddTo);
     }
 
     @Override
@@ -28,6 +29,13 @@ public class BigStraight extends CategoryBox
     public int calculate(Object currentThrow)
     {
         List<Integer> integerList = (List<Integer>) currentThrow;
-        return 40;
+
+        return check(currentThrow) ? 40 : 0;
+    }
+
+    @Override
+    public int getValue()
+    {
+        return 140;
     }
 }

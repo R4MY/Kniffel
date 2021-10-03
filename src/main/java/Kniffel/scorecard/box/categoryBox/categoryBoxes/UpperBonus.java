@@ -1,6 +1,7 @@
 package Kniffel.scorecard.box.categoryBox.categoryBoxes;
 
 import Kniffel.scorecard.box.categoryBox.CategoryBox;
+import Kniffel.scorecard.section.sections.SectionEnum;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,13 +13,11 @@ public class UpperBonus extends CategoryBox
     {
     }
 
-    UpperBonus(String category, String description, String scoreComposition)
+    public UpperBonus(String category, String description, String scoreComposition, List<SectionEnum> sectionsToAddTo)
     {
-        super(category, description, scoreComposition);
+        super(category, description, scoreComposition, sectionsToAddTo);
     }
 
-
-// TODO IMPLEMENTATION  (can only be done after scorecard is done)
     @Override
     public boolean check(Object scoreCard)
     {
@@ -29,6 +28,12 @@ public class UpperBonus extends CategoryBox
     public int calculate(Object currentThrow)
     {
         List<Integer> integerList = (List<Integer>) currentThrow;
-        return 35;
+        return check(currentThrow) ? 35 : 0;
+    }
+
+    @Override
+    public int getValue()
+    {
+        return 80;
     }
 }

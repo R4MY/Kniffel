@@ -1,6 +1,5 @@
 package Kniffel;
 
-import Kniffel.scorecard.Scorecard;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -8,8 +7,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class KniffelApplication
 {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception
+	{
 		SpringApplication.run(KniffelApplication.class, args);
+
+//		GamePerformer.perform();
 	}
 
 }

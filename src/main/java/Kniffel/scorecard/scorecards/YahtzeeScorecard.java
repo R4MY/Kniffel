@@ -7,7 +7,7 @@ import java.util.List;
 
 public class YahtzeeScorecard extends KniffelScorecard
 {
-    YahtzeeScorecard(String playerName, List<Section> sections, List<PointsColumn> pointsColumns)
+    public YahtzeeScorecard(String playerName, List<Section> sections, List<PointsColumn> pointsColumns)
     {
         super(playerName, sections, pointsColumns);
     }

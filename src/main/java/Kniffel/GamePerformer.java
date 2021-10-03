@@ -1,44 +1,36 @@
 package Kniffel;
 
 import Kniffel.scorecard.Scorecard;
-import org.springframework.beans.factory.annotation.Value;
+import Kniffel.service.CheckpointPerformer;
+import Kniffel.service.DialoguePerformer;
+import Kniffel.service.Printer;
 import org.springframework.stereotype.Service;
 
-import java.util.Scanner;
-// TODO WHOLE CLASS
 @Service
 public class GamePerformer
 {
-    private final int roundsAmount;
-    private final String playAgainMessage;
-
-    public GamePerformer(@Value("${roundsAmount}") int roundsAmount,
-                         @Value("${yahtzee.dialogues.playAgain}") String playAgainMessage)
+    public static void perform() throws Exception
     {
-        this.roundsAmount = roundsAmount;
-        this.playAgainMessage = playAgainMessage;
-    }
+        GameArchitect.createGame();
 
-    public boolean performGame()
-    {
-        for (int i = 0; i < roundsAmount; i++)
+        do
         {
-            for (Scorecard scorecard : Game.getScorecards())
+            do
             {
-                scorecard = TurnHandler.takeTurn(scorecard);
-            }
-        }
-        return getPlayAgain(); // return wants to play again
-    }
+                for (int i = 0; i < Game.getAmountOfTurns(); i++)
+                {
+                    for (Scorecard scorecard : Game.getScorecards())
+                    {
+                        Printer.printScoreCard(scorecard);
+                        TurnHandler.takeTurn(scorecard);
+                        Printer.printScoreCard(scorecard);
+                        CheckpointPerformer.perform();
+//                    Game.nextPlayersTurn();
+                    }
+                }
 
-    private void createScorecards()
-    {
-    }
-
-    private boolean getPlayAgain()
-    {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println(playAgainMessage);
-        return scanner.nextBoolean();
+                ShowdownPerformer.perform();
+            } while (Game.getCurrentRound() < Game.getAmountOfRounds());
+        } while (DialoguePerformer.askPlayAgain());
     }
 }

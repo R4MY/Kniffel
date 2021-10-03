@@ -1,26 +1,14 @@
 package Kniffel;
 
 import Kniffel.scorecard.Scorecard;
+import Kniffel.service.DialoguePerformer;
+import Kniffel.service.PointsCalculator;
 import Kniffel.service.Roller;
-import org.springframework.beans.factory.annotation.Value;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
-// TODO: Whole class
 public class TurnHandler
 {
-    private static String diceKeep;
-    private static String chooseCategory;
-
-    public TurnHandler(@Value("${dialogues.diceKeep}") String diceKeep,
-                       @Value("${dialogues.chooseCategory}") String chooseCategory)
-    {
-        TurnHandler.diceKeep = diceKeep;
-        TurnHandler.chooseCategory = chooseCategory;
-    }
-
-    static Scorecard takeTurn(Scorecard scorecard)
+    static void takeTurn(Scorecard scorecard) throws Exception
     {
         List<Integer> currentThrow = Roller.rollAll();
         displayThrow(currentThrow);
@@ -29,7 +17,11 @@ public class TurnHandler
         rerollThrow(currentThrow);
         displayThrow(currentThrow);
 
-        return chooseCategoryAndAddScore(scorecard);
+        String category;
+        do
+        {
+            category = DialoguePerformer.chooseCategoryToAddScore(scorecard);
+        } while (!PointsCalculator.addPointsToCategory(scorecard, category, currentThrow));
     }
 
     private static void displayThrow(List<Integer> currentThrow)
@@ -37,27 +29,23 @@ public class TurnHandler
         System.out.println(currentThrow.toString());
     }
 
-    private static void rerollThrow(List<Integer> currentThrow)
+    private static void rerollThrow(List<Integer> currentThrow) throws Exception
     {
-        List<Integer> diceKept = getDiceKept();
+        List<Integer> diceKept = DialoguePerformer.getDiceKept();
 
-        if (diceKept.size() != currentThrow.size())
+        if (diceKept.isEmpty())
+            currentThrow = Roller.rollAll();
+        else
         {
-            Roller.rerollChosenDice(currentThrow, diceKept);
+            int diceKeptSize = diceKept.size();
+            int currentThrowSize = currentThrow.size();
+            if (diceKeptSize != currentThrowSize)
+            {
+                if (diceKeptSize < currentThrowSize)
+                    Roller.keepChosenDice(currentThrow, diceKept);
+                else
+                    throw new Exception();
+            }
         }
-    }
-
-    private static List<Integer> getDiceKept()
-    {
-        System.out.println(diceKeep);
-        Scanner scanner = new Scanner(System.in);
-        return new ArrayList<>();
-    }
-
-    private static Scorecard chooseCategoryAndAddScore(Scorecard scorecard)
-    {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println(chooseCategory);
-        return scorecard;
     }
 }

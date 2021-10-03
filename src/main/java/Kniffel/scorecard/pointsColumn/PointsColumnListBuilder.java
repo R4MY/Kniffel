@@ -1,5 +1,6 @@
 package Kniffel.scorecard.pointsColumn;
 
+import Kniffel.Game;
 import Kniffel.scorecard.section.Section;
 
 import java.util.ArrayList;
@@ -7,26 +8,7 @@ import java.util.List;
 
 public class PointsColumnListBuilder
 {
-    private List<PointsColumn> listOfPointsColumn = List.of(
-            new PointsColumnBuilder()
-                    .setGameNumber(1)
-                    .build(),
-            new PointsColumnBuilder()
-                    .setGameNumber(2)
-                    .build(),
-            new PointsColumnBuilder()
-                    .setGameNumber(3)
-                    .build(),
-            new PointsColumnBuilder()
-                    .setGameNumber(4)
-                    .build(),
-            new PointsColumnBuilder()
-                    .setGameNumber(5)
-                    .build(),
-            new PointsColumnBuilder()
-                    .setGameNumber(6)
-                    .build()
-    );
+    private List<PointsColumn> listOfPointsColumn = new ArrayList<>();
 
     public PointsColumnListBuilder addList()
     {
@@ -52,31 +34,14 @@ public class PointsColumnListBuilder
 
     public List<PointsColumn> buildList(List<Section> sections)
     {
-        return List.of(
-                new PointsColumnBuilder()
-                        .setGameNumber(1)
-                        .setPointsBoxes(sections)
-                        .build(),
-                new PointsColumnBuilder()
-                        .setGameNumber(2)
-                        .setPointsBoxes(sections)
-                        .build(),
-                new PointsColumnBuilder()
-                        .setGameNumber(3)
-                        .setPointsBoxes(sections)
-                        .build(),
-                new PointsColumnBuilder()
-                        .setGameNumber(4)
-                        .setPointsBoxes(sections)
-                        .build(),
-                new PointsColumnBuilder()
-                        .setGameNumber(5)
-                        .setPointsBoxes(sections)
-                        .build(),
-                new PointsColumnBuilder()
-                        .setGameNumber(6)
-                        .setPointsBoxes(sections)
-                        .build()
-        );
+        List<PointsColumn> pointsColumnList = new ArrayList<>();
+        for (int i = 1; i <= Game.getAmountOfRounds(); i++)
+        {
+            pointsColumnList.add(new PointsColumnBuilder()
+                                         .setGameNumber(i)
+                                         .setPointsBoxes(sections)
+                                         .build());
+        }
+        return pointsColumnList;
     }
 }

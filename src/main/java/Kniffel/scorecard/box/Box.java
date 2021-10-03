@@ -1,8 +1,10 @@
 package Kniffel.scorecard.box;
 
+import Kniffel.scorecard.box.categoryBox.ScoreCalculator;
+
 import java.util.Objects;
 
-public abstract class Box
+public abstract class Box implements BoxValue, ScoreCalculator
 {
     private String category;
 

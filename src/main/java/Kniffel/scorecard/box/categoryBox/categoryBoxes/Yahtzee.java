@@ -1,6 +1,7 @@
 package Kniffel.scorecard.box.categoryBox.categoryBoxes;
 
 import Kniffel.scorecard.box.categoryBox.CategoryBox;
+import Kniffel.scorecard.section.sections.SectionEnum;
 import Kniffel.service.DiceRoller;
 import Kniffel.service.IntegerListHandler;
 import org.springframework.stereotype.Service;
@@ -14,22 +15,28 @@ public class Yahtzee extends CategoryBox
     {
     }
 
-    Yahtzee(String category, String description, String scoreComposition)
+    public Yahtzee(String category, String description, String scoreComposition, List<SectionEnum> sectionsToAddTo)
     {
-        super(category, description, scoreComposition);
+        super(category, description, scoreComposition, sectionsToAddTo);
     }
 
     @Override
     public boolean check(Object currentThrow)
     {
         return DiceRoller.d6.stream()
-                .anyMatch(n -> IntegerListHandler.checkHasNumberTheAmountOfTimes((List<Integer>) currentThrow, n, 5));
+                .anyMatch(n -> IntegerListHandler.checkHasNumberMinimumTheAmountOfTimes((List<Integer>) currentThrow, n, 5));
     }
 
     @Override
     public int calculate(Object currentThrow)
     {
         List<Integer> integerList = (List<Integer>) currentThrow;
-        return 50;
+        return check(currentThrow) ? 50 : 0;
+    }
+
+    @Override
+    public int getValue()
+    {
+        return 150;
     }
 }

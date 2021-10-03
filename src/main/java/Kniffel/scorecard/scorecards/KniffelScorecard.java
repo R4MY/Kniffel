@@ -8,7 +8,7 @@ import java.util.List;
 
 public class KniffelScorecard extends Scorecard
 {
-    KniffelScorecard(String playerName, List<Section> sections, List<PointsColumn> pointsColumns)
+    public KniffelScorecard(String playerName, List<Section> sections, List<PointsColumn> pointsColumns)
     {
         super(playerName, sections, pointsColumns);
     }
